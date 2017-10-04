@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../mycake/vendor/aura/intl" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/bake" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/cakephp" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/cakephp-codesniffer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/chronos" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/debug_kit" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/migrations" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/plugin-installer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/dnoegel/php-xdg-base-dir" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jakub-onderka/php-console-color" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jakub-onderka/php-console-highlighter" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/josegonzalez/dotenv" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/justinrainbow/json-schema" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/m1/env" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/mobiledetect/mobiledetectlib" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psy/psysh" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/robmorgan/phinx" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/cli-prompt" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/jsonlint" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/phar-utils" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/squizlabs/php_codesniffer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/config" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/process" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/zendframework/zend-diactoros" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../mycake/vendor/aura/intl" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/bake" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/cakephp" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/cakephp-codesniffer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/chronos" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/debug_kit" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/migrations" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/cakephp/plugin-installer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/dnoegel/php-xdg-base-dir" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jakub-onderka/php-console-color" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jakub-onderka/php-console-highlighter" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/josegonzalez/dotenv" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/justinrainbow/json-schema" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/m1/env" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/mobiledetect/mobiledetectlib" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/psy/psysh" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/robmorgan/phinx" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/cli-prompt" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/jsonlint" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/seld/phar-utils" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/squizlabs/php_codesniffer" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/config" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/process" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../mycake/vendor/zendframework/zend-diactoros" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
