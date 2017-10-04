@@ -49,6 +49,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
+    $routes->connect(
+        '/:controller/:action/:id/',
+        ['controller' => 'Jobs', 'action' => 'deleteview'],
+        ['id' => '[0-9]+' , 'pass' => ['id']]
+    );
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**

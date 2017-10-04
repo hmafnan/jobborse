@@ -56,6 +56,7 @@ class JobsController extends AppController
         $job = $this->Jobs->newEntity();
         if ($this->request->is('post')) {
             $job = $this->Jobs->patchEntity($job, $this->request->getData());
+            $job['token'] = bin2hex(random_bytes(42));
             if ($this->Jobs->save($job)) {
                 $this->Flash->success(__('The job has been saved.'));
 
@@ -80,6 +81,12 @@ class JobsController extends AppController
         $job = $this->Jobs->get($id, [
             'contain' => []
         ]);
+        if ($this->request->is(['get'])) {
+            $token = $this->request->getQuery('token');
+            if($token != $job['token']) {
+                return $this->redirect(['controller' => 'Users', 'action'=>'login']);
+            }
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             $job = $this->Jobs->patchEntity($job, $this->request->getData());
             if ($this->Jobs->save($job)) {
@@ -107,10 +114,37 @@ class JobsController extends AppController
         $job = $this->Jobs->get($id);
         if ($this->Jobs->delete($job)) {
             $this->Flash->success(__('The job has been deleted.'));
+            return $this->redirect(['action' => 'message']);
         } else {
             $this->Flash->error(__('The job could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Delete view method
+     *
+     * @param string|null $id Job id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function deleteview($id = null)
+    {
+        $job = $this->Jobs->get($id);
+        if ($this->request->is(['get'])) {
+            $token = $this->request->getQuery('token');
+            if($token != $job['token']) {
+                return $this->redirect(['controller' => 'Users', 'action'=>'login']);
+            }
+        }
+        $this->set(compact('job'));
+        $this->set('_serialize', ['job']);
+
+    }
+
+    public function message()
+    {
+
     }
 }

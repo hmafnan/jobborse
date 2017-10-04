@@ -66,6 +66,10 @@ class JobsTable extends Table
             ->email('email')
             ->allowEmpty('email');
 
+        $validator
+            ->scalar('token')
+            ->allowEmpty('token');
+
         return $validator;
     }
 

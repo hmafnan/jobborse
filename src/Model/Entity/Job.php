@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $title
  * @property string $description
  * @property string $email
+ * @property string $token
  * @property int $user_id
  *
  * @property \App\Model\Entity\User $user
@@ -30,7 +31,17 @@ class Job extends Entity
         'title' => true,
         'description' => true,
         'email' => true,
+        'token' => true,
         'user_id' => true,
         'user' => true
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'token'
     ];
 }

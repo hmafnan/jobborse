@@ -25,6 +25,7 @@
             echo $this->Form->control('title');
             echo $this->Form->control('description');
             echo $this->Form->control('email');
+            echo $this->Form->hidden('token');
             echo $this->Form->control('user_id', ['options' => $users]);
         ?>
     </fieldset>
