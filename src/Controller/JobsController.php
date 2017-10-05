@@ -60,7 +60,7 @@ class JobsController extends AppController
             $job = $this->Jobs->patchEntity($job, $this->request->getData());
             $job['token'] = bin2hex(random_bytes(42));
             if ($this->Jobs->save($job)) {
-//                $this->sendEmail($job);
+                $this->sendEmail($job);
                 $this->Flash->success(__('The job has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -93,7 +93,7 @@ class JobsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $job = $this->Jobs->patchEntity($job, $this->request->getData());
             if ($this->Jobs->save($job)) {
-                $this->Flash->success(__('The has been edited'));
+                $this->Flash->success(__('The job has been saved'));
                 return $this->redirect(['action' => 'message']);
             }
             $this->Flash->error(__('The job could not be saved. Please, try again.'));
@@ -150,24 +150,34 @@ class JobsController extends AppController
 
     }
 
+    /**
+     * Send email method
+     *
+     * @param job.
+     * @return \Cake\Http\Response|null Redirects to index.
+     */
     public function sendEmail($job) {
         Email::setConfigTransport('gmail', [
             'host' => 'smtp.gmail.com',
             'port' => 587,
             'username' => getenv('SMTP_USERNAME'),
             'password' => getenv('SMTP_PASSWORD'),
-            'className' => 'Smtp'
+            'className' => 'Smtp',
+            'tls' => true
         ]);
+
         $email = new Email();
+        $email->setTransport('gmail');
         $url = $this->request->host() . '/jobs/';
         $editUrl = $url . 'edit/' . $job->id . '?token=' . $job->token;
         $deleteUrl = $url . 'deleteview/' . $job->id . '?token=' . $job->token;
-        $message = "To edit the job click on this link <br>\n" . $editUrl . "<br>\n";
-        $message = $message . "To delete the job click on this link <br>\n" . $deleteUrl;
-        $email->setFrom(['afnannazir.qc@gmail.com' => 'Jobborse'])
-              ->setTo($job->email)
-              ->setSubject('New job added')
-              ->send($message);
+        $message = "To edit the job click on this link \n" . $editUrl . "\n\n";
+        $message = $message . "To delete the job click on this link \n" . $deleteUrl;
+        $email->setFrom(['hm.afnan@yahoo.com' => 'Job Added']);
+        $email->setTo($job->email);
+        $email->setSubject('New job added');
+        $email->send($message);
+
     }
     public function beforeFilter(Event $event)
     {
