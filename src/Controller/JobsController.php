@@ -14,14 +14,6 @@ use Cake\Mailer\Email;
  */
 class JobsController extends AppController
 {
-    public $gmail = array (
-            'host' => 'smtp.gmail.com',
-            'port' => '587',
-            'username' => null,
-            'password' => null,
-            'className' => 'Smtp',
-            'tls' => true
-    );
     /**
      * Index method
      *
@@ -160,12 +152,19 @@ class JobsController extends AppController
     /**
      * Send email method
      *
+     * Send with smtp
      * @param job.
      * @return \Cake\Http\Response|null Redirects to index.
      */
     public function sendEmail($job) {
-
-        Email::setConfigTransport('gmail', $this->gmail);
+        Email::setConfigTransport('gmail', [
+            'host' => 'smtp.gmail.com',
+            'port' => '587',
+            'username' => getenv('SMTP_USERNAME'),
+            'password' => getenv('SMTP_PASSWORD'),
+            'className' => 'Smtp',
+            'tls' => true
+        ]);
         $email = new Email();
         $email->setTransport('gmail');
         $url = $this->request->host() . '/jobs/';
@@ -184,12 +183,5 @@ class JobsController extends AppController
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['edit', 'message', 'deleteview', 'delete']);
-    }
-
-    public function __construct()
-    {
-        $this->gmail['username'] = getenv('SMTP_USERNAME');
-        $this->gmail['password'] = getenv('SMT_PASSWORD');
-
     }
 }
