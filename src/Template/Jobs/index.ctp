@@ -8,8 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Job'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="jobs index large-9 medium-8 columns content">
@@ -30,11 +28,9 @@
                 <td><?= $this->Number->format($job->id) ?></td>
                 <td><?= h($job->title) ?></td>
                 <td><?= h($job->email) ?></td>
-                <td><?= $job->has('user') ? $this->Html->link($job->user->name, ['controller' => 'Users', 'action' => 'view', $job->user->id]) : '' ?></td>
+                <td><?= $job->has('user') ? h($job->user->name) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $job->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $job->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $job->id], ['confirm' => __('Are you sure you want to delete # {0}?', $job->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

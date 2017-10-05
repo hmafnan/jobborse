@@ -1,1 +1,0 @@
-<h4>Deleted successfully</h4>
