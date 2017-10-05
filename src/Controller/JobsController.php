@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Mailer\Email;
 
 /**
  * Jobs Controller
@@ -41,6 +42,7 @@ class JobsController extends AppController
         $job = $this->Jobs->get($id, [
             'contain' => ['Users']
         ]);
+        $this->sendEmail();
 
         $this->set('job', $job);
         $this->set('_serialize', ['job']);
@@ -146,5 +148,20 @@ class JobsController extends AppController
     public function message()
     {
 
+    }
+
+    public function sendEmail() {
+        Email::setConfigTransport('gmail', [
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'username' => getenv('SMTP_USERNAME'),
+            'password' => getenv('SMTP_PASSWORD'),
+            'className' => 'Smtp'
+        ]);
+        $email = new Email();
+        $email->setFrom(['afnannazir.qc@gmail.com' => 'My Site'])
+            ->setTo('hm.afnan@yahoo.com')
+            ->setSubject('About')
+            ->send('My message');
     }
 }
