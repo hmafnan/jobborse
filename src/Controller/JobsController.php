@@ -157,27 +157,18 @@ class JobsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      */
     public function sendEmail($job) {
-        Email::setConfigTransport('gmail', [
-            'host' => 'smtp.gmail.com',
-            'port' => '587',
-            'username' => getenv('SMTP_USERNAME'),
-            'password' => getenv('SMTP_PASSWORD'),
-            'className' => 'Smtp',
-            'tls' => true
-        ]);
         $email = new Email();
-        $email->setTransport('gmail');
-        $url = $this->request->host() . '/jobs/';
+        $email->setTransport('mailgun');
+        $url = 'http://'.$this->request->host() . '/jobs/';
         $editUrl = $url . 'edit/' . $job->id . '?token=' . $job->token;
         $deleteUrl = $url . 'deleteview/' . $job->id . '?token=' . $job->token;
         $message = "To edit the job click on link below <br> <a href='$editUrl' target='_blank'>$editUrl</a>";
         $message = $message . "<br>To delete the job click on link below <br> <a href='$deleteUrl' target='_blank'>$deleteUrl</a>";
-        $email->setFrom(['hm.afnan@yahoo.com' => 'Job Added']);
+        $email->setFrom(['afnannazir.qc@gmail.com' => 'Job Added']);
         $email->setTo($job->email);
         $email->setSubject('New job added');
         $email->setEmailFormat('both');
         $email->send($message);
-
     }
 
     public function beforeFilter(Event $event)

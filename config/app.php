@@ -189,6 +189,11 @@ return [
             'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
+        'mailgun' => [
+            'className' => 'MailgunEmail.Mailgun',
+            'apiKey' => getenv('MAILGUN_API'), // your api key
+            'domain' => getenv('MAILGUN_DOMAIN') // your sending domain
+        ]
     ],
 
     /**
